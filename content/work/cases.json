@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "ridgeline-outdoors", "client": "Ridgeline Outdoors",
+    "headline": "An outdoor launch built around the trail.",
+    "image": "/work/ridgeline.webp", "alt": "Hiker in a rust jacket walking into the wooded foothills",
+    "services": ["Video Production", "Social Media Management"],
+    "challenge": "A fictional outdoor label needed launch creative that felt rooted in real trail use and could work in both wide and vertical formats.",
+    "solution": "The concept follows one hiker from the city edge into the foothills. A hero film provides the story, with shorter edits planned for social launch and product discovery.",
+    "results": [{"value": "3×", "label": "Target video completion lift"}, {"value": "12", "label": "Planned social cutdowns"}]
+  },
+  {
+    "slug": "citrus-club", "client": "Citrus Club",
+    "headline": "A sharper campaign for a new drink.",
+    "image": "/work/citrus.webp", "alt": "A red drink can and citrus on a warm orange studio set",
+    "services": ["Meta Ads", "Branding & Creative"],
+    "challenge": "A fictional beverage brand needed a creative system that could stand out on a small screen and support affordable early testing.",
+    "solution": "Bold product photography anchors the launch. Multiple hooks and crops test product discovery, flavour appeal and the first-purchase offer.",
+    "results": [{"value": "2.4×", "label": "Target return on ad spend"}, {"value": "9", "label": "Planned creative variations"}]
+  },
+  {
+    "slug": "form-and-field", "client": "Form & Field",
+    "headline": "A quieter website with a clearer next step.",
+    "image": "/work/form.webp", "alt": "Minimal concrete staircase and strong architectural light",
+    "services": ["Website Design & Development", "SEO"],
+    "challenge": "A fictional architecture practice needed a portfolio that could show larger projects and help prospective clients judge whether to get in touch.",
+    "solution": "An image-led project index, concise service pages and a prominent enquiry path connect the work to the studio’s business goals.",
+    "results": [{"value": "+40%", "label": "Target lift in qualified enquiries"}, {"value": "6", "label": "Planned service and project templates"}]
+  }
+]
