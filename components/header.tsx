@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -12,9 +13,9 @@ export function Header() {
   return <>
     <header className="site-header">
       <div className="container header-inner">
-        <a className="wordmark" href="/" aria-label={site.name} onClick={() => setOpen(false)}>
+        <Link className="wordmark" href="/" aria-label={site.name} onClick={() => setOpen(false)}>
           <Image src="/wordmark.svg" alt="" width={132} height={39} unoptimized />
-        </a>
+        </Link>
         <button type="button" className="menu-toggle mono" aria-expanded={open} aria-controls="primary-nav" onClick={() => setOpen(!open)}>
           {open ? site.closeMenu : site.openMenu}<span aria-hidden="true">{open ? "−" : "+"}</span>
         </button>
@@ -24,8 +25,8 @@ export function Header() {
             document.querySelector<HTMLButtonElement>(".menu-toggle")?.focus();
           }
         }}>
-          {site.nav.map(([label, href]) => <a key={href} href={href} aria-current={pathname === href ? "page" : undefined}
-            data-active={pathname.startsWith(`${href}/`) || pathname === href} onClick={() => setOpen(false)}>{label}</a>)}
+          {site.nav.map(([label, href]) => <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined}
+            data-active={pathname.startsWith(`${href}/`) || pathname === href} onClick={() => setOpen(false)}>{label}</Link>)}
         </nav>
         <div className="header-cta"><Cta href="#contact" variant="button" source="header">{site.audit}</Cta></div>
       </div>

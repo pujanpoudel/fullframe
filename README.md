@@ -68,3 +68,27 @@ Copy `.env.example` to `.env.local` for local setup. Add the same values to your
 - Google’s search documentation informed the crawlable internal links, useful headings and article metadata. [Search Essentials](https://developers.google.com/search/docs/essentials) · [Article structured data](https://developers.google.com/search/docs/appearance/structured-data/article)
 
 [Next.js metadata documentation](https://nextjs.org/docs/app/getting-started/metadata-and-og-images) · [Upstash Redis REST API](https://upstash.com/docs/redis/features/restapi)
+
+### Photo and video showcase
+
+The homepage and `/work` share `components/project-gallery.tsx`. Photo cards come from `content/work/cases.json`; the opening film card points to `public/work/concept-reel.mp4`. This nine-second silent motion study animates existing concept artwork and is not client footage. Replace the reel and poster with approved work when available. Videos play only after a visitor opens the viewer; the native controls support pause, seeking and fullscreen. Escape or Close dismisses the viewer. All motion respects reduced-motion preferences.
+
+## Studio admin
+
+Open `/admin`. The local admin password is the `ADMIN_PASSWORD` value in `.env.local` (ignored by Git). Use a unique password of at least 16 characters. Sessions last eight hours, use HTTP-only same-site cookies, and use secure cookies over HTTPS. All admin writes require an authenticated session and a matching request origin. Login attempts are limited within the server process.
+
+The dashboard edits homepage copy, the hero reel/poster, and projects (cover, gallery, film, services, story, results, visibility, and order). **Save draft** preserves your working copy without changing public pages. **Publish changes** updates the public homepage, project index, detail routes, and sitemap. Media uploads accept JPG, PNG, WebP, and MP4 up to 50 MB. Uploaded media paths remain publicly accessible; use this library only for portfolio assets intended for publication.
+
+Content is saved atomically as `draft.json` and `published.json` in `.studio-data`; uploads are stored in its `media` directory. Set `CMS_DATA_DIR` to a persistent mounted directory in production and back it up. Run this version on a single Node server with persistent disk. Vercel's ephemeral/serverless filesystem is not a supported storage backend for this admin; use a database/object-storage adapter before deploying there. The admin supports one studio administrator, not separate accounts or roles.
+
+The design follows the editorial structure of the COLLINS reference using Fullframe copy, local artwork, and a system serif rather than COLLINS's proprietary brand assets or typefaces.
+
+### Local reference preview
+
+The authorized reference preview runs on a separate local origin. It serves the captured public pages, Nuxt runtime, styles, and fonts. The existing Next.js app and its editable CMS run on port 3000.
+
+1. Run `python3 scripts/sync-reference.py` to capture the public sitemap, linked pages, and their local assets into the ignored `.reference-site/` directory.
+2. Run `pnpm reference` and open `http://127.0.0.1:3100`. Set `REFERENCE_PORT` to use a different port.
+3. Run `pnpm dev` for the editable Fullframe site and `/admin`. The preview's `/admin` link redirects there.
+
+The preview preserves the reference content and still loads public Sanity and Mux media from their CDNs. The preview processes read requests only. Form submissions and third-party analytics are disabled. CMS edits apply to the editable Fullframe site. The capture manifest records unresolved URLs so a missing source page or asset can be identified.

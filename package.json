@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "reference": "node scripts/serve-reference.mjs"
   },
   "engines": {
     "node": ">=22"

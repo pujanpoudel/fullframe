@@ -2,6 +2,7 @@
 
 import { animate, motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import Link from "next/link";
 import { track } from "@/lib/analytics";
 
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -13,16 +14,16 @@ export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 export function Cta({ href, children, variant = "text", source }: {
   href: string; children: ReactNode; variant?: "text" | "button" | "outline"; source: string;
 }) {
-  return <a className={`cta cta-${variant}`} href={href} onClick={() => track("cta_click", { source })}>
-    {children}<Arrow diagonal={variant === "text"} />
-  </a>;
+  return <Link className={`cta cta-${variant}`} href={href === "#contact" ? "/contact#contact" : href} onClick={() => track("cta_click", { source })}>
+    {children}
+  </Link>;
 }
 
 export function Reveal({ children, className }: { children: ReactNode; className?: string }) {
   const reduce = useReducedMotion();
   return <motion.div className={className} initial={false}
-    whileInView={reduce ? undefined : { opacity: [0.72, 1], y: [16, 0] }}
-    viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.38, ease: "easeOut" }}>
+    whileInView={reduce ? undefined : { opacity: [0.35, 1], y: [36, 0] }}
+    viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.7, ease: "easeOut" }}>
     {children}
   </motion.div>;
 }

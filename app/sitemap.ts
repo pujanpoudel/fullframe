@@ -1,10 +1,12 @@
 import type { MetadataRoute } from "next";
 import { posts, topics } from "@/content/blog";
 import { services } from "@/content/site";
-import { cases } from "@/content/work";
+import { readContent } from "@/lib/cms/store";
+export const dynamic = "force-dynamic";
 import { siteUrl } from "@/lib/seo";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const cases = (await readContent()).projects.filter(p => p.published);
   const paths = [
     "/", "/services", "/work", "/packages", "/about", "/contact", "/privacy", "/blog",
     ...services.map(({ slug }) => `/services/${slug}`),

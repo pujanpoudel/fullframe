@@ -1,6 +1,5 @@
-import { ArticleArchive, FeaturedArticle } from "@/components/blog-sections";
-import { Breadcrumbs, PageIntro } from "@/components/page-parts";
-import { Cta } from "@/components/ui";
+import { ArticleArchive } from "@/components/blog-sections";
+import { StudioStories } from "@/components/studio-home";
 import { blogCopy } from "@/content/blog";
 import { pageMetadata } from "@/lib/seo";
 
@@ -10,12 +9,8 @@ export const metadata = { ...pageMetadata({ title: "Blog", description: blogCopy
 
 export default function BlogPage() {
   return <main id="main" className="container inner-page">
-    <Breadcrumbs items={[{ name: "Blog", path }]} />
-    <PageIntro label={blogCopy.label} title={blogCopy.title} description={blogCopy.description}>
-      <Cta href="#articles" source="blog_archive">{blogCopy.archive}</Cta>
-      <Cta href="/feed.xml" source="blog_rss">{blogCopy.feed}</Cta>
-    </PageIntro>
-    <FeaturedArticle />
+    <StudioStories directory />
+    <h1 className="studio-directory-title">Journal</h1>
     <ArticleArchive />
   </main>;
 }

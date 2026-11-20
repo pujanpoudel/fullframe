@@ -3,7 +3,7 @@ export const site = {
   description: "Full-service digital marketing agency in Kathmandu for video, social media, paid ads, websites, SEO, branding and marketing analytics.",
   location: "Kathmandu, Nepal",
   nav: [
-    ["Services", "/services"], ["Work", "/work"], ["Packages", "/packages"],
+    ["Services", "/services"], ["Projects", "/work"], ["Packages", "/packages"],
     ["About", "/about"], ["Blog", "/blog"],
   ],
   audit: "Book a free audit",
@@ -41,8 +41,8 @@ export const site = {
     select: "Get this package", customTitle: "Need something custom?", customCta: "Tell us what you need",
   },
   work: {
-    label: "03 / Selected work", title: "Work in frame.",
-    copy: "Three concept projects show how we would approach different briefs. Results shown are example targets.",
+    label: "Selected projects", title: "Made to be seen.",
+    copy: "Explore the photos, visual worlds and motion behind our concept projects. Choose a format, take a closer look, or read the story.",
     concept: "Concept case study", visit: "View case study", back: "Back to selected work",
     challenge: "The challenge", solution: "What we did", results: "Example targets",
     gallery: "Creative direction", play: "Load project video", cta: "Talk through your project",
